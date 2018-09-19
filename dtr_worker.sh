@@ -74,6 +74,8 @@ function status (){
 }
 
 echo "$RED" "- This tool currently only works for a single DTR Repica -" "$NORMAL"
+if ! $(which -s curl); then echo "$RED" " ** Curl was not found. Please install before preceeding. ** " "$NORMAL" ; fi
+if ! $(which -s jq); then echo "$RED" " ** Jq was not found. Please install before preceeding. ** " "$NORMAL" ; fi
 
 case "$1" in
         get) get_dtr_node_core;;
