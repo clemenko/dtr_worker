@@ -9,41 +9,59 @@ vim dtr_worker.sh
 ```
 
 ## Usage
-```
-./dtr_worker.sh Usage
-- This tool currently only works for a single DTR Repica -
-Usage: ./dtr_worker.sh {get  - list |  modify  - update |  curl  - example curl |  reset  - reset values to 1}
+```bash
+clemenko:clemenko Desktop $ ./dtr_worker.sh usage
+ Usage: ./dtr_worker.sh {list  - list current map |  update  - update map to half core |  reset  - reset values to 1}
 ```
 
 ## Sample get output
-```
-clemenko:dtr_worker clemenko $ ./dtr_worker.sh get
- - This tool currently only works for a single DTR Repica -
- DTR node core count  = 2 [ok]
- Current DTR capacityMap:
+```bash
+clemenko:clemenko Desktop $ ./dtr_worker.sh list
+ Node = ip-172-33-23-244.us-west-2.compute.internal Replica = a07a1ebe2036 CPU = 4000000000 
 {
   "mirror": 1,
-  "scan": 1,
-  "scanCheck": 1
+  "scan": 2,
+  "scanCheck": 2
 }
+ Node = ip-172-33-47-225.us-west-2.compute.internal Replica = 543ab90f1e19 CPU = 4000000000 
+{
+  "mirror": 1,
+  "scan": 2,
+  "scanCheck": 2
+}
+ Node = ip-172-33-7-220.us-west-2.compute.internal Replica = 0c5c109ed45c CPU = 4000000000 
+{
+  "mirror": 1,
+  "scan": 2,
+  "scanCheck": 2
+}
+
 ```
 
 ## Sample update output
-```
-clemenko:dtr_worker clemenko $ ./dtr_worker.sh update
- - This tool currently only works for a single DTR Repica -
- DTR node core count  = 2 [ok]
- Current DTR capacityMap:
+```bash
+clemenko:clemenko Desktop $ ./dtr_worker.sh update
+ updating DTR workers
+  Updated a07a1ebe2036  [ok] 
+  Updated 543ab90f1e19  [ok] 
+  Updated 0c5c109ed45c  [ok] 
+clemenko:clemenko Desktop $ ./dtr_worker.sh list
+ Node = ip-172-33-23-244.us-west-2.compute.internal Replica = a07a1ebe2036 CPU = 4000000000 
 {
-  "mirror": 1,
-  "scan": 1,
-  "scanCheck": 1
+  "mirror": 2,
+  "scan": 2,
+  "scanCheck": 4
 }
- updating DTR worker count [ok]
- Current DTR capacityMap:
+ Node = ip-172-33-47-225.us-west-2.compute.internal Replica = 543ab90f1e19 CPU = 4000000000 
 {
-  "mirror": 1,
-  "scan": 1,
-  "scanCheck": 2
+  "mirror": 2,
+  "scan": 2,
+  "scanCheck": 4
+}
+ Node = ip-172-33-7-220.us-west-2.compute.internal Replica = 0c5c109ed45c CPU = 4000000000 
+{
+  "mirror": 2,
+  "scan": 2,
+  "scanCheck": 4
 }
 ```
