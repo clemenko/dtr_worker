@@ -76,9 +76,10 @@ function status (){
   exit 1
 }
 
-#echo "$RED" "- This tool currently only works for a single DTR Repica -" "$NORMAL"
-if ! $(which -s curl); then echo "$RED" " ** Curl was not found. Please install before preceeding. ** " "$NORMAL" ; fi
-if ! $(which -s jq); then echo "$RED" " ** Jq was not found. Please install before preceeding. ** " "$NORMAL" ; fi
+#better error checking
+command -v curl >/dev/null 2>&1 || { echo "$RED" " ** Curl was not found. Please install before preceeding. ** " "$NORMAL" >&2; exit 1; }
+
+command -v jq >/dev/null 2>&1 || { echo "$RED" " ** Jq was not found. Please install before preceeding. ** " "$NORMAL" >&2; exit 1; }
 
 case "$1" in
         list) list_workers;;
