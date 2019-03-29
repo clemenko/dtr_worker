@@ -8,4 +8,12 @@ LABEL org.opencontainers.image.authors="clemenko@docker.com" \
 RUN apk -U upgrade && apk add --no-cache curl jq bash ncurses && rm -rf /var/cache/apk/*
     
 ADD . /
+
+ENV ucp_server="" \
+    dtr_server="" \
+    username="" \
+    password="" \
+    token="" \
+    replicas=""
+
 ENTRYPOINT [ "/dtr_worker.sh" ]
