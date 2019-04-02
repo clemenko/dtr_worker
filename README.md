@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This script will list, update, and reset DTR's capacityMap based on the number of cores per DTR replica (i.e. DTR Worker node).
+This script will list, update, and reset DTR's capacityMap `mirror`, `scan`, and `scanCheck` based on the number of cores per DTR replica (i.e. DTR Worker node).
 
 ## How to Run
 
